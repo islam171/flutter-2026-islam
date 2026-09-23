@@ -6,10 +6,10 @@ class Library{
 
   final List<LibraryItem> items;
 
-  void add(LibraryItem item) => this.items.add(item);
+  void add(LibraryItem item) => items.add(item);
 
   Book? findByTitle(String title){
-    for(LibraryItem item in this.items){
+    for(LibraryItem item in items){
       if(item is Book && item.title == title){
         return item;
       }
@@ -19,21 +19,21 @@ class Library{
 
   String countryOf(String title){
     Book? book = findByTitle(title);
-    String? country = book?.author?.country;
+    String? country = book?.author.country;
     return country ?? "Unknown";
   }
 
   late final DateTime openedAt;
 
   void open(){
-    this.openedAt = DateTime.now();
+    openedAt = DateTime.now();
   }
 
   String? _cachedReport;
 
 
   void report(){
-    this._cachedReport ??= this._buildReport();
+    _cachedReport ??= _buildReport();
   }
 
   String _buildReport() {

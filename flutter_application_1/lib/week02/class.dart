@@ -1,16 +1,22 @@
+import 'package:flutter/cupertino.dart';
+
 void hello1() {
 
   final teacher = Major(title: "teacher");
 
-  final Islam = Human(name: 'Islam', age: 21, height: 190);
-  final Baha = Student(name: "Baha",
+  final islam = Human(name: 'Islam', age: 21, height: 190);
+  final baha = Student(name: "Baha",
       age: 22,
       height: 180,
       major: teacher,
-      year_course: 3);
+      yearCourse: 3);
 
-  final islam2 =  Islam.copyWith(name: "Islam2");
-  Baha.playBasketBall();
+  final islam2 =  islam.copyWith(name: "Islam2");
+  baha.playBasketBall();
+  islam2.grewUp();
+  baha.sayHello();
+  baha.playBasketBall();
+  baha.playFootBall();
 
 }
 
@@ -27,12 +33,13 @@ class Human {
 
   static int count = 0;
 
+  @override
   String toString() {
     return 'Name: $name, age: $age, height: $height';
   }
 
   void grewUp() {
-    this.age++;
+    age++;
   }
 
 
@@ -47,43 +54,44 @@ class Major {
   final String title;
   String? desc;
 
+  @override
   String toString() {
-    return this.title;
+    return title;
   }
 }
 
-class Student extends Human with BasketBallPlayer {
+class Student extends Human with BasketBallPlayer, FootBallPLayer {
   Student({
     required super.name,
     required super.height,
     required super.age,
     required this.major,
-    required this.year_course,
+    required this.yearCourse,
   });
 
   final Major major;
-  int year_course;
+  int yearCourse;
 
   @override
   String toString() {
-    return super.toString() + ', major: $major, year: $year_course';
+    return  '${super.toString()}, major: $major, year: $yearCourse';
   }
 }
 
 extension on Student{
-  void sayHello(){
-    print('hello');
+  String sayHello(){
+    return "hello";
   }
 }
 
 mixin BasketBallPlayer{
   void playBasketBall(){
-    print("play Basket");
+    debugPrint("play Basket");
   }
 }
 
 mixin FootBallPLayer{
   void playFootBall(){
-    print("play FootBall");
+    debugPrint("play FootBall");
   }
 }

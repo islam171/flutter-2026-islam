@@ -5,7 +5,7 @@ abstract class LibraryItem{
 
   String describe();
 
-  bool get isOld => this.year > 50;
+  bool get isOld => year > 50;
 
 }
 
@@ -18,7 +18,7 @@ class Author {
 
   @override
   String toString() {
-    return this.name;
+    return name;
   }
 }
 
@@ -47,8 +47,7 @@ enum Genre {
 }
 
 class Book extends LibraryItem with Borrowable{
-  // final String title;
-  // final int year;
+
   final Author author;
   final Genre genre;
   final String? description;
@@ -83,7 +82,7 @@ class Book extends LibraryItem with Borrowable{
   }
 
   bool get isLong {
-    return this.pages > 400;
+    return pages > 400;
   }
 
   Book copyWith({
@@ -131,12 +130,14 @@ mixin Borrowable on LibraryItem{
 class Ghost implements LibraryItem{
   Ghost({required this.title, required this.year});
 
+  @override
   final String title;
+  @override
   final int year;
 
   @override
   String describe() => "Title: $title";
   @override
-  bool get isOld => this.year > 50;
+  bool get isOld => year > 50;
 
 }

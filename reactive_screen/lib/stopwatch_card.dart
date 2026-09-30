@@ -41,7 +41,7 @@ class _StopWatchCardState extends State<StopWatchCard> {
     return  Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Padding(padding: EdgeInsets.all(10.0) ,child: Center(child: Text(_seconds.toString()))),
+          Padding(padding: EdgeInsets.all(10.0) ,child: Center(child: Text('${(_seconds ~/ 60).toString().padLeft(2, '0')}:${(_seconds % 60).toString().padLeft(2, '0')}',))),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,

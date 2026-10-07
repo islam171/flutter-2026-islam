@@ -20,7 +20,7 @@ class _TapCardState extends State<TapCard> {
           });
         },
         onLongPress: _onLongPress,
-        child: ListTile(title: Text("Tap this Card" + _taps.toString())),
+        child: ListTile(title: Text("Tap this Card $_taps")),
       ),
     );
   }

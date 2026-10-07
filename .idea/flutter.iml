@@ -2,7 +2,23 @@
 <module type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/check_list/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/check_list/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/check_list/build" />
+      <excludeFolder url="file://$MODULE_DIR$/flutter_application_1/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/flutter_application_1/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/flutter_application_1/build" />
+      <excludeFolder url="file://$MODULE_DIR$/profile_sscreen/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/profile_sscreen/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/profile_sscreen/build" />
+      <excludeFolder url="file://$MODULE_DIR$/never_overflows/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/never_overflows/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/never_overflows/build" />
+      <excludeFolder url="file://$MODULE_DIR$/reactive_screen/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/reactive_screen/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/reactive_screen/build" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Dart SDK" level="project" />

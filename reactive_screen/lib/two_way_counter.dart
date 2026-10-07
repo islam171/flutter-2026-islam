@@ -13,6 +13,7 @@ class _TwoWayCounterState extends State<TwoWayCounter> {
   bool _saving = false;
 
   void _decrement(){
+    if(_taps <= 0) return;
     setState(() {
       _taps--;
     });

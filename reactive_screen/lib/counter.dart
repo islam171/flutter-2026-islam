@@ -16,7 +16,6 @@ class Counter extends StatelessWidget {
           child: Text("-"),
         ),
         Padding(padding: EdgeInsets.all(16.0),child:  Text(_taps.toString())),
-
         FilledButton(
           onPressed: increment,
           child: Text("+"),

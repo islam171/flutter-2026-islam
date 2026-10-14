@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
     ),
     darkTheme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal, brightness: Brightness.dark)),
-    themeMode: ThemeMode.dark,
+    themeMode: ThemeMode.system,
     home: const HomeScreen(),
   );
 }

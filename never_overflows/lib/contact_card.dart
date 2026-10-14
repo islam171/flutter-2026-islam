@@ -19,7 +19,6 @@ class ContactCard extends StatelessWidget {
           children: [
             Stack(
               children: [
-
                 CircleAvatar(child: Text(contact.initial)),
                 contact.unread > 0
                     ? Badge1(text: contact.unread.toString())

@@ -7,12 +7,14 @@ class Item extends StatelessWidget {
     required this.onDelete,
     required this.done,
     required this.check,
+    required this.onTap
   });
 
   final String title;
   final VoidCallback onDelete;
   final bool done;
   final VoidCallback check;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +32,7 @@ class Item extends StatelessWidget {
               color: Colors.lightBlue,
             ),
           ),
+          onTap: onTap,
         ),
       ),
       onDismissed: (direction) {

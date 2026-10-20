@@ -3,6 +3,7 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/check_list/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/check_list/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/check_list/build" />
@@ -18,6 +19,9 @@
       <excludeFolder url="file://$MODULE_DIR$/reactive_screen/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/reactive_screen/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/reactive_screen/build" />
+      <excludeFolder url="file://$MODULE_DIR$/screens_lead/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/screens_lead/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/screens_lead/build" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

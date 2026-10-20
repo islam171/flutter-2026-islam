@@ -1,0 +1,124 @@
+import '../models/item.dart';
+
+List<Item> getSeedItems() {
+  final now = DateTime.now();
+  return [
+    // 1. Mandatory: 60-character title
+    Item(
+      title: 'Advanced Fullstack Flutter and Microservices Masterclass Session',
+      category: CourseCategory.programming,
+      when: now.add(const Duration(days: 2)),
+      limit: 30,
+      names: const ['Alex', 'Maria', 'John'],
+      mode: false,
+      optionalText: 'Bring your laptop with Docker pre-installed.',
+    ),
+    // 2. Mandatory: Item at its limit (FULL)
+    Item(
+      title: 'UI/UX Design Systems Workshop',
+      category: CourseCategory.design,
+      when: now.add(const Duration(days: 4)),
+      limit: 3,
+      names: const ['Alice', 'Bob', 'Charlie'],
+      mode: false,
+      optionalText: 'Figma templates will be provided.',
+      favourite: true,
+    ),
+    // 3. Mandatory: Past item
+    Item(
+      title: 'Legacy Intro to Python 101',
+      category: CourseCategory.programming,
+      when: now.subtract(const Duration(days: 10)),
+      limit: 50,
+      names: const ['David', 'Elena'],
+      mode: true,
+      optionalText: 'https://meet.jit.si/python-archived',
+    ),
+    // 4. Mandatory: Mode on (Online link)
+    Item(
+      title: 'Global Remote Business Strategy Roundtable',
+      category: CourseCategory.business,
+      when: now.add(const Duration(hours: 5)),
+      limit: 100,
+      names: const ['Grace', 'Heidi', 'Ivan'],
+      mode: true,
+      optionalText: 'https://zoom.us/j/9876543210',
+      favourite: true,
+    ),
+    // 5. Mandatory: Item without optional text
+    Item(
+      title: 'Conversational Spanish Practice Hour',
+      category: CourseCategory.languages,
+      when: now.add(const Duration(days: 1)),
+      limit: 12,
+      names: const ['Jack', 'Liam'],
+      mode: false,
+      optionalText: null,
+    ),
+    // Additional items to make 12
+    Item(
+      title: 'Big Data Analytics with Apache Spark',
+      category: CourseCategory.dataScience,
+      when: now.add(const Duration(days: 3)),
+      limit: 5,
+      names: const ['Noah', 'Emma', 'Oliver'],
+      mode: true,
+      optionalText: 'https://meet.google.com/abc-defg-hij',
+    ),
+    Item(
+      title: 'Mobile Product Management Essentials',
+      category: CourseCategory.business,
+      when: now.add(const Duration(days: 7)),
+      limit: 25,
+      names: const ['Sophie', 'Lucas'],
+      mode: false,
+      optionalText: 'Room 402, Main Campus.',
+    ),
+    Item(
+      title: '3D Graphics Shader Development in Flutter',
+      category: CourseCategory.programming,
+      when: now.add(const Duration(days: 12)),
+      limit: 20,
+      names: const [],
+      mode: false,
+      optionalText: 'OpenGL/Vulkan basics recommended.',
+    ),
+    Item(
+      title: 'Machine Learning for Natural Language',
+      category: CourseCategory.dataScience,
+      when: now.add(const Duration(days: 15)),
+      limit: 15,
+      names: const ['Mia', 'Ethan', 'Charlotte', 'Amelia'],
+      mode: true,
+      optionalText: 'https://teams.microsoft.com/l/meetup',
+      favourite: true,
+    ),
+    Item(
+      title: 'Typography & Layout Fundamentals',
+      category: CourseCategory.design,
+      when: now.add(const Duration(days: 6)),
+      limit: 10,
+      names: const ['Harper', 'Evelyn'],
+      mode: false,
+      optionalText: null,
+    ),
+    Item(
+      title: 'German Beginners Grammar & Pronunciation',
+      category: CourseCategory.languages,
+      when: now.add(const Duration(days: 8)),
+      limit: 8,
+      names: const ['Abigail', 'Emily', 'Michael'],
+      mode: true,
+      optionalText: 'https://zoom.us/j/1122334455',
+    ),
+    Item(
+      title: 'Financial Modeling for Tech Startups',
+      category: CourseCategory.business,
+      when: now.subtract(const Duration(days: 2)),
+      limit: 40,
+      names: const ['Daniel', 'James'],
+      mode: false,
+      optionalText: null,
+    ),
+  ];
+}

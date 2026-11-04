@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../models/item.dart';
 import '../utils/format.dart';
 
-// R18 & R19: Reusable card with Stack avatar, badge, title (2 lines ellipsis)
 class CourseCard extends StatelessWidget {
   const CourseCard({
     super.key,
@@ -26,10 +25,10 @@ class CourseCard extends StatelessWidget {
         onTap: onTap,
         borderRadius: BorderRadius.circular(12),
         child: Padding(
-          padding: const EdgeInsets.all(12.0),
+          padding: const EdgeInsets.all(5),
           child: Row(
             children: [
-              // R19: Stack Avatar with Positioned badge
+
               Stack(
                 clipBehavior: Clip.none,
                 children: [
@@ -73,7 +72,7 @@ class CourseCard extends StatelessWidget {
                 ],
               ),
               const SizedBox(width: 16),
-              // Expanded Column
+
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -88,7 +87,7 @@ class CourseCard extends StatelessWidget {
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      '${AppFormat.date(item.when)} • ${item.mode ? "Online" : "Venue"}',
+                      '${AppFormat.date(item.when)} • ${item.mode ? "Online" : "Offline"}',
                       style: Theme.of(context).textTheme.bodySmall,
                     ),
                   ],

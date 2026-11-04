@@ -3,7 +3,6 @@ import '../models/item.dart';
 import '../widgets/course_card.dart';
 import '../widgets/empty_state.dart';
 
-// Tab 1 — Main List Screen
 class ListTab extends StatefulWidget {
   const ListTab({
     super.key,
@@ -33,7 +32,6 @@ class _ListTabState extends State<ListTab> {
     super.dispose();
   }
 
-  // R7: Functional lists filtering
   List<Item> get _filteredItems {
     final query = _searchController.text.trim().toLowerCase();
     return widget.items.where((item) {
@@ -48,7 +46,6 @@ class _ListTabState extends State<ListTab> {
   Widget build(BuildContext context) {
     final filtered = _filteredItems;
 
-    // R21: Search field, ChoiceChips, FilterChip in one Column with Expanded list
     return Scaffold(
       body: Column(
         children: [
@@ -128,7 +125,6 @@ class _ListTabState extends State<ListTab> {
                 });
               },
             )
-            // R20: LayoutBuilder switching ListView vs GridView
                 : LayoutBuilder(
               builder: (context, constraints) {
                 if (constraints.maxWidth >= 600) {

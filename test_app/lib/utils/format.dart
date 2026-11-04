@@ -1,4 +1,4 @@
-// R8: Custom date formatting with no external packages
+
 class AppFormat {
   static String date(DateTime dt) {
     const months = [

@@ -5,7 +5,6 @@ import '../models/countdown.dart';
 import '../routes.dart';
 import '../utils/format.dart';
 
-// Pushed Screen: Detail
 class DetailScreen extends StatefulWidget {
   const DetailScreen({
     super.key,
@@ -34,7 +33,6 @@ class _DetailScreenState extends State<DetailScreen> {
   void initState() {
     super.initState();
     _currentItem = widget.item;
-    // R13: Periodic 1-minute timer created in initState and cancelled in dispose
     _timer = Timer.periodic(const Duration(minutes: 1), (_) {
       if (mounted) setState(() {});
     });
@@ -49,7 +47,6 @@ class _DetailScreenState extends State<DetailScreen> {
   void _handlePrimaryAction() async {
     final isEnrolled = _currentItem.contains(widget.profileName);
 
-    // R15: Empty profile check shows SnackBar with action switching tab
     if (widget.profileName.trim().isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -80,7 +77,6 @@ class _DetailScreenState extends State<DetailScreen> {
       ),
     );
 
-    // R14: Check mounted after await
     if (!mounted || confirm != true) return;
 
     final updatedNames = List<String>.from(_currentItem.names);
@@ -103,7 +99,6 @@ class _DetailScreenState extends State<DetailScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(_currentItem.title, maxLines: 1, overflow: TextOverflow.ellipsis),
-        // R31: No back button customized; AppBar menu holds Edit and Delete
         actions: [
           PopupMenuButton<String>(
             onSelected: (val) async {
@@ -144,7 +139,6 @@ class _DetailScreenState extends State<DetailScreen> {
       ),
       body: Column(
         children: [
-          // R24: Stack header
           Stack(
             children: [
               Container(
@@ -171,7 +165,6 @@ class _DetailScreenState extends State<DetailScreen> {
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Text(
-                    // R9: Render Countdown via exhaustive switch
                     switch (countdown) {
                       Upcoming(:final remaining) => 'Starts in ${AppFormat.duration(remaining)}',
                       Started(:final elapsed) => 'Started ${AppFormat.duration(elapsed)} ago',
@@ -183,7 +176,6 @@ class _DetailScreenState extends State<DetailScreen> {
               ),
             ],
           ),
-          // R29: DefaultTabController + TabBar + TabBarView
           Expanded(
             child: DefaultTabController(
               length: 2,
@@ -217,7 +209,6 @@ class _DetailScreenState extends State<DetailScreen> {
                               title: const Text('Capacity Status'),
                               subtitle: Text('${_currentItem.places.taken} enrolled / ${_currentItem.places.free} seats remaining'),
                             ),
-                            // R6: Optional text collection if
                             if (_currentItem.optionalText != null) ...[
                               const Divider(),
                               Text('Description', style: Theme.of(context).textTheme.titleSmall),
@@ -226,7 +217,6 @@ class _DetailScreenState extends State<DetailScreen> {
                             ],
                           ],
                         ),
-                        // Names Tab
                         ListView.builder(
                           padding: const EdgeInsets.all(16),
                           itemCount: _currentItem.names.length,
@@ -253,14 +243,13 @@ class _DetailScreenState extends State<DetailScreen> {
               ),
             ),
           ),
-          // Primary Action Bar
+
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: SizedBox(
               width: double.infinity,
               height: 48,
               child: ElevatedButton(
-                // R16: Primary action disabled when full unless unenrolling
                 onPressed: (_currentItem.isFull && !isEnrolled) ? null : _handlePrimaryAction,
                 child: Text(isEnrolled ? 'Leave Course' : 'Enroll Now'),
               ),

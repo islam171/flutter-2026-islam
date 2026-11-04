@@ -22,6 +22,12 @@
       <excludeFolder url="file://$MODULE_DIR$/screens_lead/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/screens_lead/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/screens_lead/build" />
+      <excludeFolder url="file://$MODULE_DIR$/my_learning/zero_to_hero/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/my_learning/zero_to_hero/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/my_learning/zero_to_hero/build" />
+      <excludeFolder url="file://$MODULE_DIR$/shop/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/shop/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/shop/build" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

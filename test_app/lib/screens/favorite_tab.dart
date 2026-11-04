@@ -3,7 +3,6 @@ import '../models/item.dart';
 import '../widgets/course_card.dart';
 import '../widgets/empty_state.dart';
 
-// Tab 2 — Favourites
 class FavouritesTab extends StatelessWidget {
   const FavouritesTab({
     super.key,
@@ -18,7 +17,6 @@ class FavouritesTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // R7: where filter
     final favs = items.where((i) => i.favourite).toList();
 
     if (favs.isEmpty) {

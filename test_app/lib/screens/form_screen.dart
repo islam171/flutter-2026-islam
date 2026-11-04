@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../models/item.dart';
 import '../utils/format.dart';
 
-// Form Screen — New and Edit
 class FormScreen extends StatefulWidget {
   const FormScreen({super.key, this.initialItem});
 
@@ -65,7 +64,6 @@ class _FormScreenState extends State<FormScreen> {
     super.dispose();
   }
 
-  // R30: Check form dirty state for PopScope
   bool get _isDirty {
     final orig = widget.initialItem ?? Item.empty();
     return _titleController.text != orig.title ||
@@ -95,15 +93,13 @@ class _FormScreenState extends State<FormScreen> {
   }
 
   Future<void> _save() async {
-    if (_isSaving) return; // Prevent double tap
+    if (_isSaving) return;
 
     if (_formKey.currentState?.validate() ?? false) {
       setState(() => _isSaving = true);
 
-      // R17: Simulate 1-second save
       await Future.delayed(const Duration(seconds: 1));
 
-      // R14: Check mounted after await before pop
       if (!mounted) return;
 
       final result = Item(
@@ -123,7 +119,6 @@ class _FormScreenState extends State<FormScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // R30: PopScope handles back gestures
     return PopScope(
       canPop: !_isDirty || _isSaving,
       onPopInvokedWithResult: (didPop, result) async {
@@ -148,7 +143,7 @@ class _FormScreenState extends State<FormScreen> {
           title: Text(widget.initialItem == null ? 'New Course' : 'Edit Course'),
         ),
         body: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(), // R35: Dismiss keyboard
+          onTap: () => FocusScope.of(context).unfocus(),
           child: SingleChildScrollView(
             padding: const EdgeInsets.all(16.0),
             child: Form(
@@ -156,7 +151,6 @@ class _FormScreenState extends State<FormScreen> {
               autovalidateMode: AutovalidateMode.onUserInteraction,
               child: Column(
                 children: [
-                  // R34: Title validator 3-60 chars
                   TextFormField(
                     controller: _titleController,
                     focusNode: _titleFocus,
@@ -174,7 +168,6 @@ class _FormScreenState extends State<FormScreen> {
                     },
                   ),
                   const SizedBox(height: 12),
-                  // Category Dropdown
                   DropdownButtonFormField<CourseCategory>(
                     value: _category,
                     decoration: const InputDecoration(
@@ -198,7 +191,6 @@ class _FormScreenState extends State<FormScreen> {
                     },
                   ),
                   const SizedBox(height: 12),
-                  // R34: Limit validator
                   TextFormField(
                     controller: _limitController,
                     focusNode: _limitFocus,
@@ -221,14 +213,12 @@ class _FormScreenState extends State<FormScreen> {
                     },
                   ),
                   const SizedBox(height: 12),
-                  // Mode switch
                   SwitchListTile(
                     title: const Text('Online Mode (URL link)'),
                     value: _mode,
                     onChanged: (v) => setState(() => _mode = v),
                   ),
                   const SizedBox(height: 12),
-                  // R34: Location / Link with mode validation
                   TextFormField(
                     controller: _locationController,
                     focusNode: _locationFocus,
@@ -246,7 +236,6 @@ class _FormScreenState extends State<FormScreen> {
                     },
                   ),
                   const SizedBox(height: 12),
-                  // R36: Date and Time field readOnly
                   TextFormField(
                     readOnly: true,
                     controller: TextEditingController(text: AppFormat.date(_when)),
@@ -258,7 +247,6 @@ class _FormScreenState extends State<FormScreen> {
                     onTap: _pickDate,
                   ),
                   const SizedBox(height: 12),
-                  // Optional Description
                   TextFormField(
                     controller: _descController,
                     focusNode: _descFocus,
@@ -270,7 +258,6 @@ class _FormScreenState extends State<FormScreen> {
                     ),
                   ),
                   const SizedBox(height: 24),
-                  // R17: Save button with progress indicator
                   SizedBox(
                     width: double.infinity,
                     height: 48,

@@ -1,4 +1,4 @@
-// R9: Sealed class Countdown with exhaustive switch rendering
+
 sealed class Countdown {}
 
 class Upcoming extends Countdown {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-// R23: Shared empty state widget
+
 class EmptyStateWidget extends StatelessWidget {
   const EmptyStateWidget({
     super.key,

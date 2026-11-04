@@ -3,7 +3,6 @@ import '../models/item.dart';
 List<Item> getSeedItems() {
   final now = DateTime.now();
   return [
-    // 1. Mandatory: 60-character title
     Item(
       title: 'Advanced Fullstack Flutter and Microservices Masterclass Session',
       category: CourseCategory.programming,
@@ -13,7 +12,6 @@ List<Item> getSeedItems() {
       mode: false,
       optionalText: 'Bring your laptop with Docker pre-installed.',
     ),
-    // 2. Mandatory: Item at its limit (FULL)
     Item(
       title: 'UI/UX Design Systems Workshop',
       category: CourseCategory.design,
@@ -24,7 +22,6 @@ List<Item> getSeedItems() {
       optionalText: 'Figma templates will be provided.',
       favourite: true,
     ),
-    // 3. Mandatory: Past item
     Item(
       title: 'Legacy Intro to Python 101',
       category: CourseCategory.programming,
@@ -34,7 +31,6 @@ List<Item> getSeedItems() {
       mode: true,
       optionalText: 'https://meet.jit.si/python-archived',
     ),
-    // 4. Mandatory: Mode on (Online link)
     Item(
       title: 'Global Remote Business Strategy Roundtable',
       category: CourseCategory.business,
@@ -45,7 +41,6 @@ List<Item> getSeedItems() {
       optionalText: 'https://zoom.us/j/9876543210',
       favourite: true,
     ),
-    // 5. Mandatory: Item without optional text
     Item(
       title: 'Conversational Spanish Practice Hour',
       category: CourseCategory.languages,
@@ -55,7 +50,6 @@ List<Item> getSeedItems() {
       mode: false,
       optionalText: null,
     ),
-    // Additional items to make 12
     Item(
       title: 'Big Data Analytics with Apache Spark',
       category: CourseCategory.dataScience,

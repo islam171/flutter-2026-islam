@@ -1,19 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:test_app/screens/shell_screen.dart';
 import 'models/item.dart';
 import 'screens/detail_screen.dart';
 import 'screens/form_screen.dart';
 
-// R25: Route names constants and typed arguments
+
 class Routes {
-  static const String shell = '/';
   static const String detail = '/detail';
   static const String form = '/form';
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case shell:
-        return MaterialPageRoute(builder: (_) => const ShellScreen());
       case detail:
         final args = settings.arguments as DetailScreenArgs;
         return MaterialPageRoute(

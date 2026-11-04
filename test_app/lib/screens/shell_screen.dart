@@ -7,9 +7,15 @@ import 'favorite_tab.dart';
 import 'list_tab.dart';
 import 'profile_tab.dart';
 
-// R10 & R11: Shell holding state for items, profile, and themeMode
 class ShellScreen extends StatefulWidget {
-  const ShellScreen({super.key});
+  const ShellScreen({
+    super.key,
+    required this.themeMode,
+    required this.onThemeModeChanged,
+  });
+
+  final ThemeMode themeMode;
+  final ValueChanged<ThemeMode> onThemeModeChanged;
 
   @override
   State<ShellScreen> createState() => _ShellScreenState();
@@ -52,7 +58,6 @@ class _ShellScreenState extends State<ShellScreen> {
   }
 
   Future<void> _openForm([Item? item]) async {
-    // R27: await pushNamed, check null and mounted
     final result = await Navigator.pushNamed<Item>(context, Routes.form, arguments: item);
     if (!mounted || result == null) return;
 
@@ -86,8 +91,6 @@ class _ShellScreenState extends State<ShellScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // R11: Get theme mode callback from MyApp
-    final myAppState = context.findAncestorStateOfType<DynamicThemeState>();
 
     return Scaffold(
       appBar: AppBar(
@@ -97,7 +100,6 @@ class _ShellScreenState extends State<ShellScreen> {
           _ => 'User Profile',
         }),
       ),
-      // R32: Drawer with About dialog and Reset option
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -175,12 +177,11 @@ class _ShellScreenState extends State<ShellScreen> {
             profile: _profile,
             items: _items,
             onProfileChanged: (p) => setState(() => _profile = p),
-            currentThemeMode: myAppState?.themeMode ?? ThemeMode.system,
-            onThemeModeChanged: (m) => myAppState?.setThemeMode(m),
+            currentThemeMode: widget.themeMode,
+            onThemeModeChanged: widget.onThemeModeChanged,
           ),
         ],
       ),
-      // R10: NavigationBar
       bottomNavigationBar: NavigationBar(
         selectedIndex: _currentTabIndex,
         onDestinationSelected: (idx) => setState(() => _currentTabIndex = idx),
@@ -191,11 +192,6 @@ class _ShellScreenState extends State<ShellScreen> {
         ],
       ),
     );
-  }
-}
 
-// Inherited/Ancestor wrapper helper for ThemeMode
-abstract class DynamicThemeState extends State {
-  ThemeMode get themeMode;
-  void setThemeMode(ThemeMode mode);
+  }
 }

@@ -13,26 +13,15 @@ class CourseHubApp extends StatefulWidget {
   State<CourseHubApp> createState() => _CourseHubAppState();
 }
 
-// R11 & R22: Dynamic theme management without external packages
 class _CourseHubAppState extends State<CourseHubApp> {
   ThemeMode _themeMode = ThemeMode.system;
-
-  @override
-  ThemeMode get themeMode => _themeMode;
-
-  @override
-  void setThemeMode(ThemeMode mode) {
-    setState(() {
-      _themeMode = mode;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Course Hub',
       debugShowCheckedModeBanner: false,
-      // R22: ColorScheme.fromSeed for light and dark themes
+
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
@@ -48,7 +37,10 @@ class _CourseHubAppState extends State<CourseHubApp> {
         ),
       ),
       themeMode: _themeMode,
-      initialRoute: Routes.shell,
+      home: ShellScreen(
+        themeMode: _themeMode,
+        onThemeModeChanged: (mode) => setState(() => _themeMode = mode),
+      ),
       onGenerateRoute: Routes.onGenerateRoute,
     );
   }

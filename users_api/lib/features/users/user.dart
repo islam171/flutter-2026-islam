@@ -3,7 +3,6 @@ typedef Company = ({String name, String catchPhrase});
 class Geo {
   const Geo({required this.lat, required this.lng});
 
-  // The server sends strings ("-37.3159"); we store doubles.
   factory Geo.fromJson(Map<String, dynamic> json) => Geo(
         lat: double.parse(json['lat'] as String),
         lng: double.parse(json['lng'] as String),
@@ -62,7 +61,6 @@ class User {
     required this.company,
   });
 
-  // Every cast is a claim. A wrong claim throws at the field that lied.
   factory User.fromJson(Map<String, dynamic> json) {
     final c = json['company'] as Map<String, dynamic>;
     return User(
@@ -71,7 +69,7 @@ class User {
       username: json['username'] as String,
       email: json['email'] as String,
       phone: json['phone'] as String,
-      website: json['website'] as String?, // the only optional field
+      website: json['website'] as String?,
       address: Address.fromJson(json['address'] as Map<String, dynamic>),
       company: (
         name: c['name'] as String,
@@ -84,12 +82,11 @@ class User {
   final String name;
   final String username;
   final String email;
-  final String phone; // raw, as the server sent it
+  final String phone;
   final String? website;
   final Address address;
   final Company company;
 
-  /// Digits and '+' only.
   String get phoneDigits => phone.replaceAll(RegExp(r'[^\d+]'), '');
 
   Map<String, dynamic> toJson() => {

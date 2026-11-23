@@ -6,8 +6,6 @@ import '../../../../core/api/api_client.dart';
 import '../../../../core/api/api_exception.dart';
 import 'user.dart';
 
-/// Screens ask for models and get models, or an [ApiException].
-/// Never a Response, never a status code, never a Map.
 class UserRepository {
   UserRepository(this._api);
 
@@ -45,8 +43,6 @@ class UserRepository {
     );
   }
 
-  // A failing cast or double.parse becomes our exception, with the field
-  // message from Dart kept in the detail.
   T _parse<T>(String where, T Function() build) {
     try {
       return build();

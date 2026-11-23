@@ -17,7 +17,7 @@ class _NewUserScreenState extends State<NewUserScreen> {
   final _name = TextEditingController();
   final _username = TextEditingController();
   final _email = TextEditingController();
-  bool _busy = false; // in flight: button disabled, second tap ignored
+  bool _busy = false;
 
   @override
   void dispose() {
@@ -33,7 +33,7 @@ class _NewUserScreenState extends State<NewUserScreen> {
     setState(() => _busy = true);
 
     final draft = User(
-      id: 0, // the server assigns the real one
+      id: 0,
       name: _name.text.trim(),
       username: _username.text.trim(),
       email: _email.text.trim(),
@@ -54,7 +54,7 @@ class _NewUserScreenState extends State<NewUserScreen> {
     if (error == null) {
       Navigator.of(context).pop();
     } else {
-      setState(() => _busy = false); // form stays open
+      setState(() => _busy = false);
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text(_message(error))));
     }

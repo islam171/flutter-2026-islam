@@ -27,11 +27,8 @@ class UsersScreen extends StatelessWidget {
   }
 
   Widget _body(UsersModel m) {
-    // Full-screen spinner only for the first load; during pull-to-refresh
-    // the RefreshIndicator shows progress over the existing list.
     if (m.loading && m.items.isEmpty) return const LoadingView();
 
-    // Exhaustive because ApiException is sealed. No default.
     final content = switch (m.error) {
       null => UserList(m.items),
       NoConnectionException() => Offline(onRetry: m.load),

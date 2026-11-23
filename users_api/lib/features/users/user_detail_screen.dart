@@ -16,7 +16,6 @@ class UserDetailScreen extends StatelessWidget {
         children: [
           _Row('Username', user.username),
           _Row('Email', user.email),
-          // Practice 12 wires these to url_launcher.
           _Row('Phone', user.phone, onTap: () {}),
           _Row('Website', website ?? 'none', onTap: website == null ? null : () {}),
           const Divider(),

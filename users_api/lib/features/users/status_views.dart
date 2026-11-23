@@ -58,7 +58,6 @@ class GenericError extends StatelessWidget {
       );
 }
 
-// A ListView, so pull-to-refresh also works on the error screens.
 class _Message extends StatelessWidget {
   const _Message({
     required this.icon,
